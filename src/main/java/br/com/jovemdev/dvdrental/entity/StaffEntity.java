@@ -1,5 +1,6 @@
 package br.com.jovemdev.dvdrental.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -24,8 +25,10 @@ public class StaffEntity {
     @Column(name = "last_name")
     private String lastName;
 
-    @ManyToOne
+
+
     /*JoinColumns({ @JoinColumn1, @JoinColumn2})*/
+    @ManyToOne
     @JoinColumn(name = "address_id", referencedColumnName = "address_id")
     private AddressEntity addressEntity;
    /* @Column(name = "address_id")

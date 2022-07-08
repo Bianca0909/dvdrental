@@ -30,4 +30,9 @@ public class StaffEntityServiceImpl implements StaffEntityService {
     public StaffEntity save(StaffEntity staffEntity) {
         return repository.save(staffEntity);
     }
+
+    @Override
+    public List<StaffEntity> findByFirstNameContains(String name) {
+        return repository.buscaPeloPrimeiroNomeJPQL(name);
+    }
 }

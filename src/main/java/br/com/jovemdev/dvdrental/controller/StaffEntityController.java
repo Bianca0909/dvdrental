@@ -26,4 +26,8 @@ public class StaffEntityController {
     public StaffEntity salvar(@RequestBody StaffEntity staffEntity) {
         return service.save(staffEntity);
     }
+    @GetMapping("/name/{name}")
+    public List<StaffEntity> findByFirstNameContains(@PathVariable String name) {
+        return service.findByFirstNameContains(name);
+    }
 }

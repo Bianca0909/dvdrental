@@ -1,10 +1,12 @@
 package br.com.jovemdev.dvdrental.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -28,8 +30,12 @@ public class AddressEntity {
 
     private String phone;
 
-    @Column(name="last_update", insertable = true)
+    @Column(name = "last_update", insertable = true)
     private LocalDateTime data;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "addressEntity")
+    private List<StaffEntity> staffs;
 
     public AddressEntity(Long id, String address, String address2, String district, Long cityId, String postalCode, String phone, LocalDateTime data) {
         this.id = id;

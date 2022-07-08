@@ -12,4 +12,6 @@ public interface StaffEntityService {
     List<StaffEntity> findAll();
 
     StaffEntity save(StaffEntity staffEntity);
+
+    List<StaffEntity> findByFirstNameContains(String name);
 }
